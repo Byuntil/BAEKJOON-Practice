@@ -1,36 +1,46 @@
+#include <stdio.h>
 #include <iostream>
+#include <string>
 
 using namespace std;
 
 int main() {
-	char b[101];
-	cin >> b;
+	string s;
+	cin >> s;
+	int num = 0;
 
-	int count = 0;
-	for(int i=0;;i++)
-	{
-		char c = b[i];
-		if (b[i] == NULL)
-		{
-			break;
+	int i = 0;
+	while (i < s.length()) {
+		if (s[i] == 'c') {
+			if (s[i + 1] == '=')
+				i++;
+			else if (s[i + 1] == '-')
+				i++;
 		}
-
-		if (c == 'n' || c == 'l') {
-			if (b[i + 1] == 'j'){
-				continue;
-			}
+		else if (s[i] == 'd') {
+			if (s[i + 1] == '-')
+				i++;
+			else if (s[i + 1] == 'z' && s[i + 2] == '=')
+				i += 2;
 		}
-		else if (c == 'd' || c == 'c') {
-			if (b[i + 1] == '=' || b[i + 1] == '-') {
-				continue;
-			}
+		else if (s[i] == 'l') {
+			if (s[i + 1] == 'j')
+				i++;
 		}
-		else if (c == 's' || c == 'z') {
-			if (b[i + 1] == '=') {
-				continue;
-			}
+		else if (s[i] == 'n') {
+			if (s[i + 1] == 'j')
+				i++;
 		}
-		count++;
+		else if (s[i] == 's') {
+			if (s[i + 1] == '=')
+				i++;
+		}
+		else if (s[i] == 'z') {
+			if (s[i + 1] == '=')
+				i++;
+		}
+		num++;
+		i++;
 	}
-	std::cout << count;
+	cout << num;
 }
