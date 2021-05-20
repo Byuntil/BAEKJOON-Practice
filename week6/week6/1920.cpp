@@ -1,9 +1,14 @@
 #include <iostream>
 #include <algorithm>
 using namespace std;
+/*
+존재하는 가를 찾기위해서 탐색을 해야하는데
+여러가지 탐색 알고리즘중 이진 탐색 알고리즘을 사용해야 시간 초과를
+없애기 위해 이진탐색(logn)을 사용 => 오름차순 정렬 필요
+*/
 
-int arrA[100001];
-int arrB[100001];
+int arrN[100001]; //n개의 정수 배열
+int arrM[100001]; //m개의 정수 배열
 
 bool binaryFunction(int A, int key) {
 	int low = 0;
@@ -13,37 +18,35 @@ bool binaryFunction(int A, int key) {
 	while (low <= high) {
 		mid = (low + high) / 2;
 
-		if (arrA[mid] == key)
+		if (arrN[mid] == key)
 			return true;
-		else if (arrA[mid] > key)
+		else if (arrN[mid] > key)
 			high = mid - 1;
 		else
 			low = mid + 1;
 	}
 	return false;
-
 }
 
 int main() {
-	ios_base::sync_with_stdio(0); cin.tie(0);
-	int A, B;
+	int N, M; //자연수  N가 M
 
-	cin >> A;
-	for (int i = 0; i < A; i++) {
-		cin >> arrA[i];
+	cin >> N;
+	for (int i = 0; i < N; i++) {
+		cin >> arrN[i];
 	}
 
-	sort(arrA, arrA + A);
+	sort(arrN, arrN + N); //퀵정렬(처음부터(0) ~ N-1까지) arrN을 오름차순 
 
-	cin >> B;
-	for (int i = 0; i < B; i++) {
-		cin >> arrB[i];
+	cin >> M;
+	for (int i = 0; i < M; i++) {
+		cin >> arrM[i];
 	}
 
 	
 
-	for (int i = 0; i < B; i++) {
-		if (binaryFunction(A, arrB[i]))
+	for (int i = 0; i < M; i++) { //반복문을 돌면서 해당 숫자가 N배열에 있는지 확인 있으면 1 없으면 0
+		if (binaryFunction(N, arrM[i]))
 			cout << "1\n";
 		else
 			cout << "0\n";

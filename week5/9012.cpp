@@ -8,13 +8,14 @@ bool check(string s) {
 	stack<char> stack;
 
 	for (int i = 0; i < s.size(); i++) {
-		char ch = s[i];
+		char ch = s[i]; //string을 char에 하나씩 할당
 
-		if (ch == '(') {
+		if (ch == '(') {//'('이면 stack에 push
 			stack.push(s[i]);
 		}
-		else {
-			if (!stack.empty()) {
+		else { // ')'이면
+			if (!stack.empty()) { 
+				//스택에 여는 괄호가 없으면 false반환 아니면 젤 위에꺼 지움
 				stack.pop();
 			}
 			else {
@@ -22,8 +23,7 @@ bool check(string s) {
 			}
 		}
 	}
-
-	return stack.empty();
+	return stack.empty(); //다 확인후 비었으면 true반환 여는 괄호가 남아있다면 false
 }
 int main() {
 	int num;

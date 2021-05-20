@@ -8,7 +8,7 @@ int main() {
 	while (true)
 	{
 		cin >> s;
-		bool b = true;
+		bool b = true; // 팰린드롬스 이면 yes(true) OR 팰린드롬수가 아니면No(false)
 		if (s == "0") {
 			break;
 		}
