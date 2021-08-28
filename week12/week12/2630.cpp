@@ -31,10 +31,10 @@ void findPaper(int x, int y, int N) {
 		}
 	}
 	else {
-		findPaper(x, y, N / 2); //왼쪽 위
-		findPaper(x, y + N / 2, N / 2); // 오른쪽 위
-		findPaper(x + N / 2, y, N / 2); //왼쪽 아래
-		findPaper(x + N / 2, y + N / 2, N / 2);//오른쪽 아래
+		findPaper(x, y, N / 2);
+		findPaper(x, y + N / 2, N / 2);
+		findPaper(x + N / 2, y, N / 2);
+		findPaper(x + N / 2, y + N / 2, N / 2);
 	}
 }
 
